@@ -25,9 +25,17 @@ head
 		a:hover {
 			text-decoration: underline;
 		}
-img(src="https://github.com/ottomated/CrewLink/raw/master/logo.png")
+		.address {
+			display: inline-block;
+			font-size: 1.4em;
+			padding: 4px 6px;
+			border-radius: 3px;
+			background-color: rgba(0,0,0,0.3);
+		}
+img(src="https://nviable.me/static/b6b69f50c2b6297d16a93244a9773196/logo.svg")
 h1 CrewLink Server
-p This is a CrewLink Server running on #{address}.
+p This is a CrewLink Server running on
+p(class="address") #{address}
 p There #{connectionCount === 1 ? 'is' : 'are'} currently #{connectionCount} connected user#{connectionCount === 1 ? '' : 's'}.
 p 
 	| To launch your own server, 
