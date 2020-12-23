@@ -27,15 +27,39 @@ head
 		}
 		.address {
 			display: inline-block;
-			font-size: 1.4em;
-			padding: 4px 6px;
+			font-size: 1.6em;
+			padding: 10px 15px;
 			border-radius: 3px;
 			background-color: rgba(0,0,0,0.3);
+			margin-bottom: 0;
+			margin-top: 0;
+		}
+		.address:hover {
+			cursor: pointer;
+		}
+		.caption {
+			opacity: 0.2;
+			font-size: 0.8em;
+			display: block;
+			margin-bottom: 30px;
+		}
+	script.
+		var copyToClipboard = function(str) {
+			var el = document.createElement('textarea');
+			el.value = str;
+			el.setAttribute('readonly', '');
+			el.style.position = 'absolute';
+			el.style.left = '-9999px';
+			document.body.appendChild(el);
+			el.select();
+			document.execCommand('copy');
+			document.body.removeChild(el);
 		}
 img(src="https://nviable.me/static/b6b69f50c2b6297d16a93244a9773196/logo.svg")
 h1 Nviable's CrewLink Server
 p This is a CrewLink Server running on
-p(class="address") #{address}
+p(class="address" onclick=`copyToClipboard("${address}")`) #{address}
+span(class="caption") ^ click to copy
 p There #{connectionCount === 1 ? 'is' : 'are'} currently #{connectionCount} connected user#{connectionCount === 1 ? '' : 's'}.
 p 
 	| To launch your own server, 
